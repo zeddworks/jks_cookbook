@@ -56,7 +56,7 @@ Create the keystore in your recipe using the following:
 yourapp = Chef::EncryptedDataBagItem.load("apps", "yourapp")
 ca = Chef::EncryptedDataBagItem.load("zw", "ca")
 
-zw_jks_keystore yourapp["ca_subject"] do
+jks_keystore yourapp["ca_subject"] do
   subject yourapp["ca_subject"]
   ca_url ca['ca_url']
   ca_user ca['ca_user']
@@ -65,6 +65,5 @@ zw_jks_keystore yourapp["ca_subject"] do
   user_agent ca['user_agent']
   jks_path "/srv/keystore.jks"
   action :create
-  provider "zw_jks_keystore"
 end
 ```
